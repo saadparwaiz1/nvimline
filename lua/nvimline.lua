@@ -15,16 +15,29 @@ local function current_mode()
 end
 
 local function git_branch()
-    local git_info = vim.b.git_info
-    local cwd = vim.fn.expand('%:p:h')
+    if vim.b.gitsigns_head then
+      local sep = ''
+      if vim.b.gitsigns_status ~= '' then
+        sep = ' '
+      end
+      return ' '  .. vim.b.gitsigns_head .. sep .. vim.b.gitsigns_status
+    end
 
+    local git_info = vim.b.git_info
     if git_info then return git_info end
+    local cwd = vim.fn.fnameescape(vim.fn.expand('%:p:h'))
 
     local branch = vim.fn.system('cd ' .. cwd ..
                                    ' &> /dev/null && git branch --show-current 2> /dev/null | tr -d "\n"')
 
     if branch == '' or not branch then
+      if vim.fn.has('mac') == 1 then
         branch = 'darwin'
+      elseif vim.fn.has('win32') == 1 then
+        branch = 'win32'
+      else
+        branch = 'linux'
+      end
     else
         branch = ' ' .. branch
     end
