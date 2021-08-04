@@ -16,4 +16,8 @@ function! nvimline#highlight() abort
   hi VimlineError guifg=#282828 guibg=#ec7279 guisp=NONE gui=NONE
   hi VimlineWarningSeperator guifg=#deb974 guibg=#34343c guisp=NONE gui=NONE
   hi VimlineWarning guifg=#282828 guibg=#deb974 guisp=NONE gui=NONE
+  hi link VimlineActiveFileSep VimlineExtSeperator
+  hi link VimlineInActiveFileSep VimlineFileSeperator
+  hi link VimlineActiveFile VimlineExt
+  hi link VimlineInActiveFile VimlineFile
 endfunction
