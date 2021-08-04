@@ -1,7 +1,17 @@
 function! nvimline#highlight() abort
   hi VimlineSubStatusLine guifg=NONE guibg=NONE guisp=NONE gui=NONE
-  hi VimlineSeperator guifg=#a0c980 guibg=#34343c guisp=NONE gui=NONE
-  hi VimlineMode guifg=#282828 guibg=#a0c980 guisp=NONE gui=bold
+  hi VimlineSeperatorN guifg=#a0c980 guibg=#34343c guisp=NONE gui=NONE
+  hi VimlineModeN guifg=#282828 guibg=#a0c980 guisp=NONE gui=bold 
+  hi VimlineSeperatorI guifg=#6cb6eb guibg=#34343c guisp=NONE gui=NONE
+  hi VimlineModeI guifg=#282828 guibg=#6cb6eb guisp=NONE gui=bold 
+  hi VimlineSeperatorV guifg=#ec7279 guibg=#34343c guisp=NONE gui=NONE
+  hi VimlineModeV guifg=#282828 guibg=#ec7279 guisp=NONE gui=bold
+  hi VimlineSeperatorC guifg=#d38aea guibg=#34343c guisp=NONE gui=NONE
+  hi VimlineModeC guifg=#282828 guibg=#d38aea guisp=NONE gui=bold
+  hi VimlineSeperatorT guifg=#6cb6eb guibg=#34343c guisp=NONE gui=NONE
+  hi VimlineModeT guifg=#282828 guibg=#6cb6eb guisp=NONE gui=bold
+  hi VimlineSeperatorR guifg=#deb974 guibg=#34343c guisp=NONE gui=NONE
+  hi VimlineModeR guifg=#282828 guibg=#deb974 guisp=NONE gui=bold
   hi VimlineFileSeperator guifg=#c5cdd9 guibg=#34343c guisp=NONE gui=NONE
   hi VimlineFile guifg=#282828 guibg=#c5cdd9 guisp=NONE gui=NONE
   hi VimlineGitSeperator guifg=#d38aea guibg=#34343c guisp=NONE gui=NONE
@@ -16,4 +26,8 @@ function! nvimline#highlight() abort
   hi VimlineError guifg=#282828 guibg=#ec7279 guisp=NONE gui=NONE
   hi VimlineWarningSeperator guifg=#deb974 guibg=#34343c guisp=NONE gui=NONE
   hi VimlineWarning guifg=#282828 guibg=#deb974 guisp=NONE gui=NONE
+  hi link VimlineActiveFileSep VimlineExtSeperator
+  hi link VimlineInActiveFileSep VimlineFileSeperator
+  hi link VimlineActiveFile VimlineExt
+  hi link VimlineInActiveFile VimlineFile
 endfunction
