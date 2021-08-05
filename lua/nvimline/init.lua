@@ -4,19 +4,19 @@ local A = vim.api
 M.setup = function (components)
   components = components or {}
   M.components = vim.tbl_extend('force', require('nvimline.components'), components)
-  vim.o.statusline = [[%!v:lua.nvimline_statusline()]]
-  vim.o.tabline = [[%!v:lua.nvimline_bufferline()]]
+  vim.o.statusline = [[%!luaeval("require('nvimline').statusline()")]]
+  vim.o.tabline = [[%!luaeval("require('nvimline').bufferline()")]]
 end
 
-_G.nvimline_bufferline = function ()
+M.bufferline = function ()
   local buffers = M.components.buffers()
   local this = A.nvim_get_current_buf()
   local bufline = {}
-  this = A.nvim_buf_get_name(this)
+  local name = A.nvim_buf_get_name(name)
   for _, v in pairs(buffers) do
-    if v == this then
+    if v == name then
       if v == '' then
-        v = '[No Name]'
+        v = 'Buffer ' .. tostring(this)
       else
          v = vim.fn.fnamemodify(v, ':t')
       end
@@ -33,7 +33,7 @@ _G.nvimline_bufferline = function ()
   return table.concat(bufline, ' ')
 end
 
-_G.nvimline_statusline = function ()
+M.statusline = function ()
   local git = M.components.git()
   local mode_info = M.components.mode()
   local mode = mode_info[1]

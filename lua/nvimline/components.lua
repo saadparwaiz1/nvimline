@@ -40,7 +40,8 @@ M.git = function ()
 end
 
 M.file = function ()
-  return '%t'
+  local mod = vim.bo.mod and ' ' or ''
+  return '%t' .. mod
 end
 
 M.info = function ()
