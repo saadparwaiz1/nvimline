@@ -1,33 +1,31 @@
 function! nvimline#highlight() abort
-  hi VimlineSubStatusLine guifg=NONE guibg=NONE guisp=NONE gui=NONE
-  hi VimlineSeperatorN guifg=#a0c980 guibg=#34343c guisp=NONE gui=NONE
-  hi VimlineModeN guifg=#282828 guibg=#a0c980 guisp=NONE gui=bold 
-  hi VimlineSeperatorI guifg=#6cb6eb guibg=#34343c guisp=NONE gui=NONE
-  hi VimlineModeI guifg=#282828 guibg=#6cb6eb guisp=NONE gui=bold 
-  hi VimlineSeperatorV guifg=#ec7279 guibg=#34343c guisp=NONE gui=NONE
-  hi VimlineModeV guifg=#282828 guibg=#ec7279 guisp=NONE gui=bold
-  hi VimlineSeperatorC guifg=#d38aea guibg=#34343c guisp=NONE gui=NONE
-  hi VimlineModeC guifg=#282828 guibg=#d38aea guisp=NONE gui=bold
-  hi VimlineSeperatorT guifg=#6cb6eb guibg=#34343c guisp=NONE gui=NONE
-  hi VimlineModeT guifg=#282828 guibg=#6cb6eb guisp=NONE gui=bold
-  hi VimlineSeperatorR guifg=#deb974 guibg=#34343c guisp=NONE gui=NONE
-  hi VimlineModeR guifg=#282828 guibg=#deb974 guisp=NONE gui=bold
-  hi VimlineFileSeperator guifg=#c5cdd9 guibg=#34343c guisp=NONE gui=NONE
-  hi VimlineFile guifg=#282828 guibg=#c5cdd9 guisp=NONE gui=NONE
-  hi VimlineGitSeperator guifg=#d38aea guibg=#34343c guisp=NONE gui=NONE
-  hi VimlineGit guifg=#282828 guibg=#d38aea guisp=NONE gui=NONE
-  hi VimlineGitSeperator guifg=#d38aea guibg=#34343c guisp=NONE gui=NONE
-  hi VimlineGit guifg=#282828 guibg=#d38aea guisp=NONE gui=NONE
-  hi VimlineLineSeperator guifg=#57595e guibg=#34343c guisp=NONE gui=NONE
-  hi VimlineLine guifg=#c5cdd9 guibg=#57595e guisp=NONE gui=NONE
-  hi VimlineExtSeperator guifg=#6cb6eb guibg=#34343c guisp=NONE gui=NONE
-  hi VimlineExt guifg=#3e4249 guibg=#6cb6eb guisp=NONE gui=NONE
-  hi VimlineErrorSeperator guifg=#ec7279 guibg=#34343c guisp=NONE gui=NONE
-  hi VimlineError guifg=#282828 guibg=#ec7279 guisp=NONE gui=NONE
-  hi VimlineWarningSeperator guifg=#deb974 guibg=#34343c guisp=NONE gui=NONE
-  hi VimlineWarning guifg=#282828 guibg=#deb974 guisp=NONE gui=NONE
-  hi link VimlineActiveFileSep VimlineExtSeperator
-  hi link VimlineInActiveFileSep VimlineFileSeperator
-  hi link VimlineActiveFile VimlineExt
-  hi link VimlineInActiveFile VimlineFile
+  " Modes Highlights
+  highlight VimlineModeR guifg=#282828 guibg=#deb974 guisp=NONE gui=bold
+  highlight VimlineModeT guifg=#282828 guibg=#6cb6eb guisp=NONE gui=bold
+  highlight VimlineModeC guifg=#282828 guibg=#d38aea guisp=NONE gui=bold
+  highlight VimlineModeV guifg=#282828 guibg=#ec7279 guisp=NONE gui=bold
+  highlight VimlineModeI guifg=#282828 guibg=#6cb6eb guisp=NONE gui=bold 
+  highlight VimlineModeN guifg=#282828 guibg=#a0c980 guisp=NONE gui=bold 
+  highlight VimlineSeperatorT guifg=#6cb6eb guibg=#34343c guisp=NONE gui=NONE
+  highlight VimlineSeperatorV guifg=#ec7279 guibg=#34343c guisp=NONE gui=NONE
+  highlight VimlineSeperatorI guifg=#6cb6eb guibg=#34343c guisp=NONE gui=NONE
+  highlight VimlineSeperatorR guifg=#deb974 guibg=#34343c guisp=NONE gui=NONE
+  highlight VimlineSeperatorC guifg=#d38aea guibg=#34343c guisp=NONE gui=NONE
+  highlight VimlineSeperatorN guifg=#a0c980 guibg=#34343c guisp=NONE gui=NONE
+  " File
+  highlight VimlineFile guifg=#282828 guibg=#c5cdd9 guisp=NONE gui=NONE
+  highlight VimlineFileSeperator guifg=#c5cdd9 guibg=#34343c guisp=NONE gui=NONE
+  " Git
+  highlight VimlineGit guifg=#282828 guibg=#d38aea guisp=NONE gui=NONE
+  highlight VimlineGitSeperator guifg=#d38aea guibg=#34343c guisp=NONE gui=NONE
+  " Line
+  highlight VimlineLine guifg=#c5cdd9 guibg=#57595e guisp=NONE gui=NONE
+  highlight VimlineSubStatusLine guifg=NONE guibg=NONE guisp=NONE gui=NONE
+  highlight VimlineLineSeperator guifg=#57595e guibg=#34343c guisp=NONE gui=NONE
+  " Active File
+  highlight VimlineActiveFile guifg=#3e4249 guibg=#6cb6eb guisp=NONE gui=NONE
+  highlight VimlineActiveFileSep guifg=#6cb6eb guibg=#34343c guisp=NONE gui=NONE
+  " Highlight Links
+  highlight link VimlineInActiveFile VimlineFile
+  highlight link VimlineInActiveFileSep VimlineFileSeperator
 endfunction

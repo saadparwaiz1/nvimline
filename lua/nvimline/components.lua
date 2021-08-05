@@ -4,14 +4,20 @@ local A = vim.api
 M.mode = function (modes)
   modes = modes or {
     n = {'NORMAL', 'N'},
+    s = {'SELECT', 'N'},
+    S = {'SELECT', 'N'},
+    v = {'VISUAL', 'V'},
+    V = {'V-LINE', 'V'},
     i = {'INSERT', 'I'},
     R = {'REPLACE', 'R'},
     c = {'COMMAND', 'C'},
     t = {'TERMINAL', 'T'},
+    ic = {'Completion', 'R'},
+    [''] = {'V-BLOCK', 'V'},
   }
   setmetatable(modes, {
-    __index = function (_, _)
-      return {'VISUAL', 'V'}
+    __index = function (_, k)
+      return {k, 'V'}
     end
   })
   return modes[A.nvim_get_mode()['mode']]
