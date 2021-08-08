@@ -45,11 +45,6 @@ M.git = function ()
   return nil
 end
 
-M.file = function ()
-  local mod = vim.bo.mod and ' ' or ''
-  return '%t' .. mod
-end
-
 M.info = function ()
   return '%l:%c %p%%'
 end
