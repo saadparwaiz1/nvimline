@@ -1,9 +1,8 @@
 local M = {}
 local A = vim.api
 
-M.setup = function (components)
-  components = components or {}
-  M.components = vim.tbl_extend('force', require('nvimline.components'), components)
+M.setup = function ()
+  M.components = require('nvimline.components')
   vim.o.statusline = [[%!luaeval("require('nvimline').statusline()")]]
   vim.o.tabline = [[%!luaeval("require('nvimline').bufferline()")]]
 end
@@ -25,9 +24,9 @@ M.bufferline = function ()
       table.insert(bufline, '%#VimlineActiveFileSep#%#VimlineActiveFile#' .. v ..  '%#VimlineActiveFileSep#%#VimlineSubStatusLine#')
     else
       if v == '' then
-          v = '[No Name]'
+        v = 'Buffer ' .. tostring(this)
       else
-          v = vim.fn.fnamemodify(v, ':t')
+        v = vim.fn.fnamemodify(v, ':t')
       end
       table.insert(bufline, '%#VimlineInActiveFileSep#%#VimlineInActiveFile#' .. v ..  '%#VimlineInActiveFileSep#%#VimlineSubStatusLine#')
     end
